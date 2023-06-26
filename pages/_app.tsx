@@ -21,12 +21,12 @@ const queryClient = new QueryClient({
 export default function App({ Component, pageProps }: AppProps) {
   // frontとbackのcookieを共有するための設定
   axios.defaults.withCredentials = true
-  // バックエンドの${process.env.NEXT_PUBLIC_API_URL}/auth/csrf-tokenエンドポイントから
+  // バックエンドの${process.env.NEXT_PUBLIC_API_URL}/auth/csrfエンドポイントから
   // CSRFトークンを取得し、クライアントのヘッダに設定している。
   useEffect(() => {
     const getCsrfToken = async () => {
       const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/csrf-token`
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/csrf`
       )
       axios.defaults.headers.common['csrf-token'] = data.csrfToken
     }
