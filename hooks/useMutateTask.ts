@@ -2,10 +2,10 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { Task } from '@prisma/client'
-import { useStore } from '../store'
+import useStore from '../store'
 import { EditedTask } from '../types'
 
-const useMutateTask = () => {
+export const useMutateTask = () => {
   const queryClient = useQueryClient()
   const router = useRouter()
   const reset = useStore((state) => state.resetEditedTask)

@@ -8,7 +8,7 @@ type State = {
   resetEditedTask: () => void
 }
 
-export const useStore = create<State>((set) => ({
+const useStore = create<State>((set) => ({
   editedTask: { id: 0, title: '', description: '' },
   updateEditedTask: (payload) =>
     set({
@@ -21,3 +21,5 @@ export const useStore = create<State>((set) => ({
   resetEditedTask: () =>
     set({ editedTask: { id: 0, title: '', description: '' } }),
 }))
+
+export default useStore
